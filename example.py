@@ -17,6 +17,17 @@ for i in range(1,6):
 Пользователь в цикле вводит 10 цифр. Найти количество введеных пользователем цифр 5.
 '''
 
+n = int(input("Сколько будет чисел? "))
+d = int(input("Какую цифру считать? "))
+count = 0
+for i in range(1, n + 1):
+    m = int(input("Число " + str(i) + ": "))
+    while m > 0:
+        if m % 10 == d:
+            count += 1
+        m = m // 10
+
+print("Было введено %d цифр %d" % (count, d))
 
 '''
 Задача 3
@@ -101,17 +112,17 @@ else: print('No')
 
 Найти максимальную цифру в числе
 '''
-from random import random
-n=int(random()*2)
-print(n)
-max = 0
+x = 234
+maxim = 1
+print(x)
 
-while n>0:
-     last=n%10
-     if last>max:
-         max=last
-print(max)
+while x > 0:
+    last = x % 10
+    if last > maxim:
+        maxim=last
+    x = x // 10
 
+print('число=', maxim)
 
 '''
 Задача 10
@@ -119,3 +130,15 @@ print(max)
 Найти количество цифр 5 в числе
 
 '''
+
+n = int(input("Сколько будет чисел? "))
+d = int(input("Какую цифру считать? "))
+count = 0
+for i in range(1, n + 1):
+    m = int(input("Число " + str(i) + ": "))
+    while m > 0:
+        if m % 10 == d:
+            count += 1
+        m = m // 10
+
+print("Было введено %d цифр %d" % (count, d))5
