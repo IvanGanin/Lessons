@@ -3,7 +3,6 @@
 import random
 list_name = ["Emily", "Emma", "Madison", "Olivia", "Hannah", "Abigail", "Isabella", "Ashley", "Samantha", "Elizabeth", "Alexis", "Sarah", "Grace", "Alyssa", "Sophia", "Lauren", "Brianna", "Kayla", "Natalie", "Anna"]
 def random_names(ln, n):
-
     random_list = []
     len_ln = len(ln)
     if len_ln == 0:

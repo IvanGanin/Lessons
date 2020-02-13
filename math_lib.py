@@ -2,7 +2,7 @@ from math import sqrt
 from collections import Counter
 
 
-def init_prime_numbers(n):  # Генерация таблицы простых чисел не превышающих n
+def init_prime_numbers(n):
     assert isinstance(n, int)
     assert n > 1
 
@@ -23,7 +23,7 @@ MAX_NUMBER = 1000
 prime_numbers = init_prime_numbers(MAX_NUMBER)
 
 
-def test_prime(n):  # проверка числа на простоту
+def test_prime(n):
     assert isinstance(n, int)
     assert 1 <= n <= MAX_NUMBER
 
@@ -40,7 +40,7 @@ def test_prime(n):  # проверка числа на простоту
     return True
 
 
-def list_divisor(n):  # выводит список всех делителей числа
+def list_divisor(n):
     assert isinstance(n, int)
     assert 1 <= n
 
@@ -56,7 +56,7 @@ def list_divisor(n):  # выводит список всех делителей 
     return ld
 
 
-def max_prime_divisor(n):  # выводит самый большой простой делитель числа
+def max_prime_divisor(n):
     assert isinstance(n, int)
     assert 1 <= n <= MAX_NUMBER
 
@@ -73,7 +73,7 @@ def max_prime_divisor(n):  # выводит самый большой прост
     return None
 
 
-def list_prime_numbers(n):  # выводит разложение числа на простые множители
+def list_prime_numbers(n):
     assert isinstance(n, int)
     assert 1 <= n <= MAX_NUMBER
 
@@ -94,7 +94,7 @@ def list_prime_numbers(n):  # выводит разложение числа н�
     return pn
 
 
-def canonical_decomposition(n):  # выводит каноническое разложение числа на простые множители
+def canonical_decomposition(n):
     pn = list_prime_numbers(n)
     cd = sorted(list(Counter(pn).items()))
     print_str = ''
@@ -103,7 +103,7 @@ def canonical_decomposition(n):  # выводит каноническое ра�
     return print_str[:-3]
 
 
-def max_divisor(n):  # выводит самый большой делитель (не обязательно простой) числа
+def max_divisor(n):
     assert isinstance(n, int)
     assert 1 <= n <= MAX_NUMBER
 
@@ -115,7 +115,7 @@ def max_divisor(n):  # выводит самый большой делитель
             return None
 
         if n % i == 0:
-            return n // i  # Число деленное на наименьший простой делитель
+            return n // i
 
     return None
 
