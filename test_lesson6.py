@@ -1,87 +1,36 @@
-import math_lib as ml
+'''
+Light:
+1. Выберете дз, к функциям которого будете писать тесты (например, вебинар 5);
+2. Создайте дополнительную ветку в репозитории GitHub с тестами;
+3. Напишите не менее 5ти тестов к функциям выбранного урока;
+4. В качестве ответа на дз пришлите ссылку на ветку с тестами или ссылку на PullRequest ветки с тестами с веткой master.
 
-#1
-def test_init_prime_numbers(n):
-    assert isinstance(n, int)
-    assert n > 1
+Pro:
 
-    pn = [2]
+light +
+5. Придумайте 2 теста к грязной функции. Примером грязной функции является функция F из задания 4;
 
-    for i in range(pn[-1] + 1, n + 1):
-        for j in pn:
-            if j > sqrt(i):
-                pn.append(i)
-                break
-            if i % j == 0:
-                break
+'''
 
-    return pn
-#2
-def test_prime(n):
-    assert isinstance(n, int)
-    assert 1 <= n <= MAX_NUMBER
+fib_num = lambda n: fib_num(n-1)+ fib_num(n-2) if n > 2 else 1
+fact = lambda n:1 if n==0 else n*fact(n-1)
 
-    if n == 1:
-        return False
+with open('log', 'r') as f:
+    f = f.readlines()
+late_log = max(f, key=lambda x: x[:19])
+print(type(late_log))
+l=late_log.lower()
+print(type(l))
 
-    for i in prime_numbers:
-        if i > sqrt(n):
-            return True
-        if n % i == 0:
-            return False
+def test_1_fib_num():
+    assert fib_num(6) == 8
+    assert fib_num(4) <= 8
+    assert fib_num(5) != 10
 
-    return True
+def test_2_fact():
+    assert fact(5) == 120
+    assert fact(5) != 125
 
-#3
-def test_list_divisor(n):
-    assert isinstance(n, int)
-    assert 1 <= n
-
-    if n == 1:
-        return []
-
-    ld = []
-
-    for i in range(2, n):
-        if n % i == 0:
-            ld.append(i)
-
-    return ld
-
-#4
-def test_list_prime_numbers(n):
-    assert isinstance(n, int)
-    assert 1 <= n <= ml.MAX_NUMBER
-
-    if n == 1:
-        return []
-
-    pn = []
-    temp = n
-
-    for i in prime_numbers:
-        if i >= n:
-            return pn
-
-        while temp % i == 0:
-            pn.append(i)
-            temp //= i
-
-    return pn
-
-#5
-def test_max_divisor(n):
-    assert isinstance(n, int)
-    assert 1 <= n <= MAX_NUMBER
-
-    if n == 1:
-        return None
-
-    for i in prime_numbers:
-        if i > sqrt(n):
-            return None
-
-        if n % i == 0:
-            return n // i
-
-    return None
+def test_3_open():
+   assert l != late_log
+   assert type(late_log) == type(l)
