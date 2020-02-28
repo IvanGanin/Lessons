@@ -7,10 +7,6 @@ LIGHT:
 4) Создать csv файл с данными о машине.
 5) Создать json файл с данными о машине.
 
-PRO:
-LIGHT +
-6) Замерить время генерации отчета (время выполнения пункта 3). В каждый файл пунктов 4 и 5
-добавить параметр: время, затраченное на генерацию отчета.
 '''
 from docxtpl import DocxTemplate
 import csv
@@ -41,7 +37,6 @@ def from_template(Brand, Model, Fuel_cons, Price, template):
     template.render(data)
     template.save('Car_info1.docx')
 
-@profile
 def report(Brand, Model, Fuel_cons, Price):
     template = 'template.docx'
     document = from_template(Brand, Model, Fuel_cons, Price, template)
