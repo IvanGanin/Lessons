@@ -1,7 +1,7 @@
-from math import sqrt
-from collections import Counter
+import math_lib as ml
 
-def init_prime_numbers(n):
+#1
+def test_init_prime_numbers(n):
     assert isinstance(n, int)
     assert n > 1
 
@@ -16,12 +16,7 @@ def init_prime_numbers(n):
                 break
 
     return pn
-
-
-MAX_NUMBER = 1000
-prime_numbers = init_prime_numbers(MAX_NUMBER)
-
-
+#2
 def test_prime(n):
     assert isinstance(n, int)
     assert 1 <= n <= MAX_NUMBER
@@ -37,7 +32,8 @@ def test_prime(n):
 
     return True
 
-def list_divisor(n):
+#3
+def test_list_divisor(n):
     assert isinstance(n, int)
     assert 1 <= n
 
@@ -52,27 +48,10 @@ def list_divisor(n):
 
     return ld
 
-
-def max_prime_divisor(n):
+#4
+def test_list_prime_numbers(n):
     assert isinstance(n, int)
-    assert 1 <= n <= MAX_NUMBER
-
-    if n == 1:
-        return None
-
-    for i in prime_numbers[::-1]:
-        if i >= n:
-            continue
-
-        if n % i == 0:
-            return i
-
-    return None
-
-
-def list_prime_numbers(n):
-    assert isinstance(n, int)
-    assert 1 <= n <= MAX_NUMBER
+    assert 1 <= n <= ml.MAX_NUMBER
 
     if n == 1:
         return []
@@ -90,17 +69,8 @@ def list_prime_numbers(n):
 
     return pn
 
-
-def canonical_decomposition(n):
-    pn = list_prime_numbers(n)
-    cd = sorted(list(Counter(pn).items()))
-    print_str = ''
-    for x, y in cd:
-        print_str += f'{x} * ' if y == 1 else f'{x}**{y} * '
-    return print_str[:-3]
-
-
-def max_divisor(n):
+#5
+def test_max_divisor(n):
     assert isinstance(n, int)
     assert 1 <= n <= MAX_NUMBER
 
@@ -115,11 +85,3 @@ def max_divisor(n):
             return n // i
 
     return None
-
-
-if __name__ == '__main__':
-    tpn1 = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
-    tpn2 = init_prime_numbers(100)
-    print(tpn1)
-    print(tpn2)
-    print('Первые до 100 числа верны:', tpn1 == tpn2)
