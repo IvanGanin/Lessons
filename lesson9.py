@@ -14,14 +14,14 @@ PRO
 import random
 
 
-class Deck:
+class Cards:
     deck_list = ['6♠', '6♥', '6♣', '6♦', '7♠', '7♥', '7♣', '7♦',
                  '8♠', '8♥', '8♣', '8♦', '9♠', '9♥', '9♣', '9♦',
                  '10♠', '10♥', '10♣', '10♦', 'A♠', 'A♥', 'A♣', 'A♦',
                  'B♠', 'B♥', 'B♣', 'B♦', 'C♠', 'C♥', 'C♣', 'C♦',
                  'D♠', 'D♥', 'D♣', 'D♦']
 
-    # выдаем по 6 карт на руки
+    # выдаем карты на руки
     def on_hand(self):
         self.hand = []
         while len(self.hand) < 6:
@@ -30,9 +30,9 @@ class Deck:
             self.hand.append(card)
         return self.hand
 
-    # ход игрока
+    # ходит игрок
     def player_try(self):
-        print("ходит игрок")
+        print("ход игрока")
         counter = None
         while counter is None:
             card = random.choice(player.hand)
@@ -42,7 +42,7 @@ class Deck:
             print(box)
             if len(box) == 0:
                 computer.hand.append(card)
-                print("компьютеру нечем бить1, ходит игрок")
+                print("компьютеру нечем бить, ход игрока")
                 print(computer.hand)
                 card_add = random.choice(player.deck_list)
                 player.deck_list.remove(card_add)
@@ -73,7 +73,7 @@ class Deck:
                             break
                 if len(play) != 0:
                     counter = 1
-                    print("ваша карта быта, ходит компьютер")
+                    print("ваша карта быта, ход компьютера")
                     card_add = random.choice(player.deck_list)
                     player.deck_list.remove(card_add)
                     player.hand.append(card_add)
@@ -84,7 +84,7 @@ class Deck:
                     print(computer.hand, len(computer.deck_list))
                 else:
                     computer.hand.append(card)
-                    print("компьютеру нечем бить2, ходит игрок")
+                    print("компьютеру нечем бить, ход игрока")
                     print(computer.hand, len(computer.deck_list))
                     card_add = random.choice(player.deck_list)
                     player.deck_list.remove(card_add)
@@ -95,7 +95,7 @@ class Deck:
         # ход компьютера
 
     def computer_try(self):
-        print("ходит компьютер")
+        print("ход компьютера")
         counter = None
         while counter is None:
             card = random.choice(computer.hand)
@@ -105,7 +105,7 @@ class Deck:
             print(box)
             if len(box) == 0:
                 player.hand.append(card)
-                print("игроку нечем бить1, ходит компьютер")
+                print("игроку нечем бить, ход компьютера")
                 print(player.hand)
                 card_add = random.choice(computer.deck_list)
                 computer.deck_list.remove(card_add)
@@ -136,7 +136,7 @@ class Deck:
                             break
                 if len(play) != 0:
                     counter = 1
-                    print("ваша карта бита, ходит игрок")
+                    print("ваша карта бита, ход игрока")
                     card_add = random.choice(player.deck_list)
                     player.deck_list.remove(card_add)
                     player.hand.append(card_add)
@@ -147,7 +147,7 @@ class Deck:
                     print(computer.hand, len(computer.deck_list))
                 else:
                     player.hand.append(card)
-                    print("игроку нечем бить, ходит компьютер")
+                    print("игроку нечем бить, ход компьютера")
                     print(computer.hand, len(computer.deck_list))
                     card_add = random.choice(computer.deck_list)
                     computer.deck_list.remove(card_add)
@@ -157,8 +157,8 @@ class Deck:
 
 
 if __name__ == "__main__":
-    player = Deck()
-    computer = Deck()
+    player = Cards()
+    computer = Cards()
     player.on_hand()
     computer.on_hand()
     player.player_try()
