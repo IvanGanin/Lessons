@@ -60,7 +60,7 @@ class Cards:
                             break
                 if len(play) != 0:
                     counter = 1
-                    print("ваша карта быта, ход компьютера")
+                    print("ваша карта бита, ход компьютера")
                     card_add = random.choice(player.cards_list)
                     player.cards_list.remove(card_add)
                     player.hand.append(card_add)
