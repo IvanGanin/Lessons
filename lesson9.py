@@ -18,6 +18,7 @@ class Cards:
 
     # ходит игрок
     def player_try(self):
+        global card
         print("ход игрока")
         counter = None
         while counter is None:
@@ -71,11 +72,11 @@ class Cards:
                 else:
                     computer.hand.append(card)
                     print("компьютеру нечем бить, ход игрока")
-                    print(computer.hand, len(computer.deck_list))
-                    card_add = random.choice(player.deck_list)
-                    player.deck_list.remove(card_add)
+                    print(computer.hand, len(computer.cards_list))
+                    card_add = random.choice(player.cards_list)
+                    player.cards_list.remove(card_add)
                     player.hand.append(card_add)
-                    print(player.hand, len(player.deck_list))
+                    print(player.hand, len(player.cards_list))
         return card
 
         # ход компьютера
